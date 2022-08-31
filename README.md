@@ -64,11 +64,11 @@ The API Server signature is provided by the [Unified API Definition](https://doc
 
 <br />
 
-## ✨ Node JS API Server
+## ✨ LARAVEL API Server
 
 <br />
 
-![Node JS API - Open-source API server built on top of Express Nodejs Framework.](https://user-images.githubusercontent.com/51070104/124934824-c210a700-e00d-11eb-9d01-e05bd8bfb608.png)
+[![Node JS API - Open-source API server built on top of Express Nodejs Framework.](https://user-images.githubusercontent.com/51070104/124934824-c210a700-e00d-11eb-9d01-e05bd8bfb608.png)](https://laravel-news.com/laravel-9)
 
 <br />
 
