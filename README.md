@@ -15,7 +15,7 @@ To use the product Node JS (>= 12.x) is required and GIT to clone/download the p
 **Step #1** - Clone the project
 
 ```bash
-$ git clone https://github.com/app-generator/react-soft-ui-dashboard.git
+$ git clone https://github.com/seunthegreat/schooledafrica-admin.git
 $ cd react-soft-ui-dashboard
 ```
 
@@ -68,7 +68,7 @@ The API Server signature is provided by the [Unified API Definition](https://doc
 
 <br />
 
-[![Node JS API - Open-source API server built on top of Express Nodejs Framework.](https://user-images.githubusercontent.com/51070104/124934824-c210a700-e00d-11eb-9d01-e05bd8bfb608.png)](https://laravel-news.com/laravel-9)
+https://laravel-news.com/laravel-9)
 
 <br />
 
