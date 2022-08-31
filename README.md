@@ -68,7 +68,7 @@ The API Server signature is provided by the [Unified API Definition](https://doc
 
 <br />
 
-https://laravel-news.com/laravel-9)
+https://www.google.com/search?q=LARAVEL+9&biw=1920&bih=969&tbm=isch&sxsrf=ALiCzsYSVwsqf3Twaq3K07LO0X5adCx8gQ:1661978305295&source=lnms&sa=X&ved=2ahUKEwi7uovU9_H5AhUOR_EDHQ0wA3MQ_AUoA3oECAEQBQ#imgrc=Z-iBE1rcXLXhkM
 
 <br />
 
