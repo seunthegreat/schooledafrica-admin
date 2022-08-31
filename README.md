@@ -1,26 +1,3 @@
-# [React Soft Dashboard](https://appseed.us/product/node-js-react-soft-dashboard)
-
-Start your Development with an Innovative Admin Template for **Material-UI** and **React**. [Soft UI Dashboard React](https://appseed.us/product/node-js-react-soft-dashboard) is built with over 70 frontend individual elements, like buttons, inputs, navbars, nav tabs, cards, or alerts, giving you the freedom of choosing and combining. The product comes with a simple JWT authentication flow: login/register/logout. 
-
-<br />
-
-> Features
-
-- Innovative **Material-UI Design** - Creafted by [Creative-Tim](https://bit.ly/3fKQZaL)
-- React, Redux, Redux-persist
-- Authentication: JWT Login/Register/Logout
-- Full-stack ready using **[Node JS API Server](https://github.com/app-generator/api-server-nodejs)** (open-source project)
-  - Features: Typescript / SQLite / TypeORM / Joy (validation) / Passport library - `passport-jwt` strategy.
-
-<br />
-
-> Links
-
-- 👉 [React Soft Dashboard](https://appseed.us/product/node-js-react-soft-dashboard) - product page
-- 👉 [React Soft Dashboard](https://node-js-react-soft-dashboard.appseed-srv1.com/authentication/sign-in) - LIVE Demo
-- 👉 Support via **Github** (issues tracker) and [Discord](https://appseed.us/support) - LIVE Assistance 
-
-<br />
 
 > Tested with:
 
@@ -30,22 +7,6 @@ Start your Development with an Innovative Admin Template for **Material-UI** and
 | `v14.15.0` | `v6.14.8`  | `v1.22.5` | ✔️ |
 | `v12.22.0` | `v6.14.11` | `v1.22.5` | ✔️ |
 
-<br />
-
-![React Soft Dashboard - Open-source full-stack product](https://user-images.githubusercontent.com/51070104/176936814-74386559-4e05-43d5-b9a4-8f70ce96a610.png)
-
-<br >
-
-> **Note**: This product can be used with other API Servers for a complete full-stack experience. **ALL API servers use a unified interface**
-
-- [Django API Server](https://github.com/app-generator/api-server-django) - open-source product
-- [Flask API Server](https://github.com/app-generator/api-server-flask) - open-source product
-- [Node JS API Server](https://github.com/app-generator/api-server-nodejs) - open-source product / Typescript / SQLite / TypeORM / Joy for validation
-- [Node JS API Server PRO](https://github.com/app-generator/api-server-nodejs-pro) - **commercial product**
-    - Typescript / SQLite / TypeORM / Joy Validation / Docker
-    - Typescript / MongoDB / Mongoose / Joy Validation / Docker (separate branch, same project)
-
-<br />
 
 ## ✨ How to use it
 
@@ -104,17 +65,6 @@ The API Server signature is provided by the [Unified API Definition](https://doc
 <br />
 
 ## ✨ Node JS API Server
-
-The product is also open-source and is already configured to work with Berry Dashboard Template - product features:
-
-- Typescript / Node js / Express server
-- JWT authentication (`passport-jwt` strategy)
-- Persistence: SQLite 
-
-> Links
-
-- [Node JS API](https://github.com/app-generator/api-server-nodejs) - source code
-- [Node JS API](https://appseed.us/boilerplate-code/nodejs-starter) - product page
 
 <br />
 
