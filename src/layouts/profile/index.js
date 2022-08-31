@@ -166,7 +166,6 @@ function Overview() {
                     { image: team4, name: "Peterson" },
                     { image: team3, name: "Nick Daniel" },
                     { image: team2, name: "Ryan Milly" },
-                    { image: team1, name: "Elena Morison" },
                   ]}
                 />
               </Grid>

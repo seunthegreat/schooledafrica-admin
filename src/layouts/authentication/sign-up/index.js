@@ -86,11 +86,7 @@ function SignUp() {
   };
 
   return (
-    <BasicLayout
-      title="Welcome!"
-      description="Use these awesome forms to login or create new account in your project for free."
-      image={curved6}
-    >
+    <BasicLayout title="Welcome!" description="" image={curved6}>
       <Card>
         <SuiBox p={3} mb={1} textAlign="center">
           <SuiTypography variant="h5" fontWeight="medium">

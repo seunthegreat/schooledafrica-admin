@@ -61,7 +61,7 @@ function SidenavCard() {
             color="default"
             fullWidth
           >
-            React Soft Dashboard
+            Schooled Africa
           </SuiButton>
         </SuiBox>
       </CardContent>

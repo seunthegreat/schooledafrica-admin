@@ -9,11 +9,11 @@ class AuthApi {
     return axios.post(`${base}/register`, data);
   };
 
-  static Logout = (data) => {
-    return axios.post(`${base}/logout`, data, { headers: { Authorization: `${data.token}` } });
+  static Logout = (token) => {
+    return axios.get(`${base}/logout`, { headers: { Authorization: `Bearer ${token}` } });
   };
 }
 
-let base = "users";
+let base = "/api/auth";
 
 export default AuthApi;

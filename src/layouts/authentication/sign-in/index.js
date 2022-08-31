@@ -26,12 +26,13 @@ import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
+import Alert from "@mui/material/Alert";
 
 // Authentication layout components
 import CoverLayout from "layouts/authentication/components/CoverLayout";
 
 // Images
-import curved9 from "assets/images/curved-images/curved-6.jpg";
+import curved9 from "assets/images/curved-images/curved-8.jpeg";
 
 import { useAuth } from "../../../auth-context/auth.context";
 import AuthApi from "../../../api/auth";
@@ -69,15 +70,16 @@ function SignIn() {
         email,
         password,
       });
+      console.log(response);
       if (response.data && response.data.success === false) {
         return setError(response.data.msg);
       }
       return setProfile(response);
     } catch (err) {
-      console.log(err);
+      console.log(err.response.data);
       setButtonText("Sign in");
       if (err.response) {
-        return setError(err.response.data.msg);
+        return setError(err.response.data.error);
       }
       return setError("There has been an error.");
     }
@@ -94,7 +96,7 @@ function SignIn() {
 
   return (
     <CoverLayout
-      title="React Node Soft Dashboard"
+      title="Admin"
       description={`${user && user.token ? "" : "Enter your email and password to sign in"}`}
       image={curved9}
     >
@@ -153,17 +155,7 @@ function SignIn() {
             </SuiTypography>
           </SuiBox>
           <SuiBox mt={2} mb={2} textAlign="center">
-            <h6
-              style={{
-                fontSize: ".8em",
-                color: "red",
-                textAlign: "center",
-                fontWeight: 400,
-                transition: ".2s all",
-              }}
-            >
-              {error}
-            </h6>
+            {error && <Alert severity="error">{error}</Alert>}
           </SuiBox>
 
           <SuiBox mt={4} mb={1}>

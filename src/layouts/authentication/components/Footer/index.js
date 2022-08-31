@@ -41,7 +41,7 @@ function Footer() {
                 variant="body2"
                 textColor="secondary"
               >
-                Creative-Tim
+                Schooled Africa
               </SuiTypography>
             </SuiBox>
             <SuiBox mr={{ xs: 2, lg: 3, xl: 6 }}>
@@ -86,11 +86,6 @@ function Footer() {
               <LinkedInIcon fontSize="small" />
             </SuiBox>
           </SuiBox>
-        </Grid>
-        <Grid item xs={12} lg={8} className="text-center">
-          <SuiTypography variant="body2" textColor="secondary">
-            &copy; Creative Tim - coded by AppSeed.
-          </SuiTypography>
         </Grid>
       </Grid>
     </SuiBox>

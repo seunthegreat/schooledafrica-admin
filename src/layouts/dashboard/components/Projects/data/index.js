@@ -25,8 +25,8 @@ import team4 from "assets/images/team-4.jpg";
 export default function data() {
   const classes = styles();
 
-  const avatars = (members) =>
-    members.map(([image, name]) => (
+  const avatars = (students) =>
+    students.map(([image, name]) => (
       <Tooltip key={name} title={name} placeholder="bottom">
         <SuiAvatar src={image} alt="name" size="xs" customClass={classes.projects_tableAvatar} />
       </Tooltip>
@@ -34,16 +34,16 @@ export default function data() {
 
   return {
     columns: [
-      { name: "companies", align: "left" },
-      { name: "members", align: "left" },
-      { name: "budget", align: "center" },
+      { name: "courses", align: "left" },
+      { name: "students", align: "left" },
+      { name: "package", align: "center" },
       { name: "completion", align: "center" },
     ],
 
     rows: [
       {
-        companies: [logoXD, "Soft UI XD Version"],
-        members: (
+        courses: [logoXD, "Soft UI XD Version"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([
               [team1, "Ryan Tompson"],
@@ -53,9 +53,9 @@ export default function data() {
             ])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-            $14,000
+            N1,000
           </SuiTypography>
         ),
         completion: (
@@ -65,8 +65,8 @@ export default function data() {
         ),
       },
       {
-        companies: [logoAtlassian, "Add Progress Track"],
-        members: (
+        courses: [logoAtlassian, "Add Progress Track"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([
               [team2, "Romina Hadid"],
@@ -74,9 +74,9 @@ export default function data() {
             ])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-            $3,000
+            N3,000
           </SuiTypography>
         ),
         completion: (
@@ -86,8 +86,8 @@ export default function data() {
         ),
       },
       {
-        companies: [logoSlack, "Fix Platform Errors"],
-        members: (
+        courses: [logoSlack, "Fix Platform Errors"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([
               [team1, "Ryan Tompson"],
@@ -95,7 +95,7 @@ export default function data() {
             ])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
             Not set
           </SuiTypography>
@@ -107,8 +107,8 @@ export default function data() {
         ),
       },
       {
-        companies: [logoSpotify, "Launch our Mobile App"],
-        members: (
+        courses: [logoSpotify, "Launch our Mobile App"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([
               [team4, "Jessica Doe"],
@@ -118,9 +118,9 @@ export default function data() {
             ])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-            $20,500
+            N1,000
           </SuiTypography>
         ),
         completion: (
@@ -130,15 +130,15 @@ export default function data() {
         ),
       },
       {
-        companies: [logoJira, "Add the New Pricing Page"],
-        members: (
+        courses: [logoJira, "Add the New Pricing Page"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([[team4, "Jessica Doe"]])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-            $500
+            N1000
           </SuiTypography>
         ),
         completion: (
@@ -148,8 +148,8 @@ export default function data() {
         ),
       },
       {
-        companies: [logoInvesion, "Redesign New Online Shop"],
-        members: (
+        courses: [logoInvesion, "Redesign New Online Shop"],
+        students: (
           <SuiBox display="flex" py={1}>
             {avatars([
               [team1, "Ryan Tompson"],
@@ -157,9 +157,9 @@ export default function data() {
             ])}
           </SuiBox>
         ),
-        budget: (
+        package: (
           <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-            $2,000
+            N2,000
           </SuiTypography>
         ),
         completion: (

@@ -29,22 +29,10 @@ import typography from "assets/theme/base/typography";
 // Custom styles for the Footer
 import styles from "examples/Footer/styles";
 
-function Footer({ company, links }) {
+function Footer({ company }) {
   const { href, name } = company;
   const { size } = typography;
   const classes = styles();
-
-  const renderLinks = () =>
-    links.map((link) => (
-      <SuiBox key={link.name} component="li" px={2}>
-        <Link href={link.href} target="_blank">
-          <SuiTypography variant="button" fontWeight="regular" textColor="text">
-            {link.name}
-          </SuiTypography>
-        </Link>
-      </SuiBox>
-    ));
-
   return (
     <SuiBox
       width="100%"
@@ -69,10 +57,9 @@ function Footer({ company, links }) {
             &nbsp;{name}&nbsp;
           </SuiTypography>
         </Link>
-        Coded By AppSeed.
       </SuiBox>
       <SuiBox component="ul" customClass={classes.footer_list}>
-        {renderLinks()}
+        {/* {renderLinks()} */}
       </SuiBox>
     </SuiBox>
   );
@@ -80,7 +67,7 @@ function Footer({ company, links }) {
 
 // Setting default values for the props of Footer
 Footer.defaultProps = {
-  company: { href: "https://bit.ly/3fKQZaL", name: "Creative Tim" },
+  company: { href: "https://bit.ly/3fKQZaL", name: "School Africa" },
   links: [
     { href: "https://appseed.us/product/node-js-react-soft-dashboard", name: "Product" },
     { href: "https://appseed.us/support", name: "Support" },

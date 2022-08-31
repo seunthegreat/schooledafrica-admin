@@ -182,7 +182,7 @@ function Configurator() {
               variant="gradient"
               fullWidth
             >
-              free download
+              Download App
             </SuiButton>
           </SuiBox>
         </SuiBox>
