@@ -1,8 +1,12 @@
+import React, { useState, useEffect } from "react";
 //-- react-router-dom components--//
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
+
+import LevelApi from "../../api/Level";
+import { useAuth } from "auth-context/auth.context";
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -16,8 +20,41 @@ import SuiButton from "components/SuiButton";
 // Custom styles for the CourseCard
 import styles from "components/CourseCard/styles";
 
-function CourseCard({ image, label, title, description, action }) {
+function CourseCard({ image, label, title, description, action, onClick }) {
   const classes = styles();
+  let { user } = useAuth();
+  const token = user.token;
+
+  const initialState = {
+    levelName: "",
+  };
+
+  const clearState = () => {
+    setLevelName(initialState.levelName);
+  };
+  const [levelName, setLevelName] = useState("");
+
+  //--getLevelName from api--//
+  const fetchLevelName = async (id) => {
+    try {
+      let response = await LevelApi.GetLevelName({ id, token });
+      let level = response.data.response;
+      if (level !== null) {
+        setLevelName(level);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    let abortController = new AbortController();
+    fetchLevelName(label);
+    return () => {
+      abortController.abort();
+      clearState();
+    };
+  }, []);
 
   return (
     <Card className={classes.courseCard}>
@@ -32,14 +69,14 @@ function CourseCard({ image, label, title, description, action }) {
             textTransform="capitalize"
             textGradient
           >
-            {label}
+            {levelName}
           </SuiTypography>
         </SuiBox>
         <SuiBox mb={1}>
           {action.type === "internal" ? (
             <SuiTypography
-              component={Link}
-              to={action.route}
+              //component={Link}
+              //to={action.route}
               variant="h5"
               textTransform="capitalize"
             >
@@ -47,8 +84,8 @@ function CourseCard({ image, label, title, description, action }) {
             </SuiTypography>
           ) : (
             <SuiTypography
-              component="a"
-              href={action.route}
+              //component="a"
+              //href={action.route}
               target="_blank"
               rel="noreferrer"
               variant="h5"
@@ -66,22 +103,24 @@ function CourseCard({ image, label, title, description, action }) {
         <SuiBox display="flex" justifyContent="space-between" alignItems="center">
           {action.type === "internal" ? (
             <SuiButton
-              component={Link}
-              to={action.route}
+              //component={Link}
+              //to={action.route}
               variant="outlined"
               size="small"
+              onClick={onClick}
               buttonColor={action.color}
             >
               {action.label}
             </SuiButton>
           ) : (
             <SuiButton
-              component="a"
-              href={action.route}
+              //component="a"
+              //href={action.route}
               target="_blank"
               rel="noreferrer"
               variant="outlined"
               size="small"
+              onClick={onClick}
               buttonColor={action.color}
             >
               {action.label}
@@ -101,12 +140,12 @@ CourseCard.defaultProps = {
 // Typechecking props for the CourseCard
 CourseCard.propTypes = {
   image: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
   action: PropTypes.shape({
     type: PropTypes.oneOf(["external", "internal"]),
-    route: PropTypes.string.isRequired,
     color: PropTypes.oneOf([
       "primary",
       "secondary",
@@ -120,7 +159,6 @@ CourseCard.propTypes = {
     ]).isRequired,
     label: PropTypes.string.isRequired,
   }).isRequired,
-  authors: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default CourseCard;

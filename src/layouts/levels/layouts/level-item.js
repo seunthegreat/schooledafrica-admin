@@ -26,7 +26,7 @@ function LevelInformation({ level }) {
         <SuiTypography variant="h6">Level Information</SuiTypography>
       </SuiBox>
       <SuiBox pt={1} pb={2} px={2}>
-        <SuiBox component="ul" display="flex" flexDirection="column" p={0} m={0}>
+        <SuiBox component="ul" alignItems="center" flexDirection="column" p={0} m={0}>
           {level.map((e) => {
             return (
               <Level

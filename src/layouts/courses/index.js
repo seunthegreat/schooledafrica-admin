@@ -21,16 +21,29 @@ import CourseList from "../courses/courseList";
 //import CourseList from "./components/CourseList";
 
 function Courses() {
-  const [addCourse, setAddCourse] = useState(false);
   const [buttonText, setButtonText] = useState("Add Course");
+  const [displayAddCourse, setDisplayAddCourse] = useState(false);
+  const [displayCourseList, setDisplayCourseList] = useState(true);
 
   const handleAddCourse = () => {
-    setAddCourse(!addCourse);
-    if (!addCourse) {
+    if (displayAddCourse) {
+      showCourseListComponent();
       setButtonText("Show Courses");
-    } else {
+    }
+    if (displayCourseList) {
+      showAddCourseComponent();
       setButtonText("Add Course");
     }
+  };
+
+  const showAddCourseComponent = () => {
+    setDisplayAddCourse(true);
+    setDisplayCourseList(false);
+  };
+
+  const showCourseListComponent = () => {
+    setDisplayAddCourse(false);
+    setDisplayCourseList(true);
   };
 
   return (
@@ -41,8 +54,8 @@ function Courses() {
           {buttonText}
         </SoftButton>
       </SuiBox>
-      {addCourse && <AddCourse />}
-      {!addCourse && <CourseList />}
+      {displayAddCourse && <AddCourse />}
+      {displayCourseList && <CourseList />}
       {/* <SuiBox pt={2} px={2}>
         <CourseList title="SS2" Courses={coursesArr} />
       </SuiBox> */}

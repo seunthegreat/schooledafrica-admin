@@ -1,108 +1,107 @@
+import React, { useState, useEffect } from "react";
 import SuiBox from "components/SuiBox";
 import { Grid } from "@mui/material";
 import CourseCard from "components/CourseCard";
+import CourseApi from "../../api/Course";
+import CourseDetails from "./courseDetails";
+import { useAuth } from "auth-context/auth.context";
+import Loading from "../../components/Loading/index";
+// import PropTypes from "prop-types";
 
-//--Images--//
-import team1 from "assets/images/team-1.jpg";
-import team2 from "assets/images/team-2.jpg";
-import team3 from "assets/images/team-3.jpg";
-import team4 from "assets/images/team-4.jpg";
-
-import phonetics from "assets/images/phonetics.jpeg";
-import algebra from "assets/images/algebra.jpeg";
-import chemistry from "assets/images/chemistry.jpeg";
+// import phonetics from "assets/images/phonetics.jpeg";
+// import algebra from "assets/images/algebra.jpeg";
+// import chemistry from "assets/images/chemistry.jpeg";
 
 function CourseList() {
+  let { user } = useAuth();
+  const token = user.token;
+
+  const initialState = {
+    courses: [],
+  };
+
+  const clearState = () => {
+    setCourses(initialState.courses);
+  };
+
+  const [courses, setCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const [displayCourseList, setDisplayCourseList] = useState(true);
+  const [displayCourseDetails, setDisplayCourseDetails] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState("");
+  const [description, setDescription] = useState("");
+  const [id, setId] = useState(0);
+
+  //--getCourses from api--//
+  const fetchCourses = async () => {
+    setLoading(true);
+    try {
+      let response = await CourseApi.GetCourses({ token });
+      let coursesList = response.data.response;
+      if (coursesList !== null) {
+        setCourses(coursesList);
+        setLoading(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    let abortController = new AbortController();
+    fetchCourses();
+    return () => {
+      abortController.abort();
+      clearState();
+    };
+  }, []);
+
+  const showCourseDetails = (name, description, id) => {
+    setDisplayCourseList(false);
+    setDisplayCourseDetails(true);
+    setSelectedCourse(name);
+    setDescription(description);
+    setId(id);
+  };
+
   return (
     <SuiBox pt={2} px={2}>
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6} xl={3}>
-          <CourseCard
-            image={algebra}
-            label="SS1"
-            title="Mathematics"
-            description="Introduction to Linear algebra and  statistics"
-            action={{
-              type: "internal",
-              route: "/pages/profile/profile-overview",
-              color: "info",
-              label: "view course",
-            }}
-            authors={[
-              { image: team1, name: "Elena Morison" },
-              { image: team2, name: "Ryan Milly" },
-              { image: team3, name: "Nick Daniel" },
-              { image: team4, name: "Peterson" },
-            ]}
-          />
+      {displayCourseDetails && (
+        <CourseDetails course={selectedCourse} description={description} course_id={id} />
+      )}
+      {displayCourseList && (
+        <Grid container spacing={3}>
+          {loading && <Loading />}
+          {courses.map((e) => {
+            return (
+              <Grid item xs={12} md={6} xl={3} key={e.id}>
+                {!loading && (
+                  <CourseCard
+                    image={e.image}
+                    label={e.level_id}
+                    title={e.name}
+                    description={e.description}
+                    key={e.id}
+                    onClick={() => showCourseDetails(e.name, e.description, e.id)}
+                    action={{
+                      type: "internal",
+                      color: "info",
+                      label: "view course",
+                    }}
+                  />
+                )}
+              </Grid>
+            );
+          })}
         </Grid>
-        <Grid item xs={12} md={6} xl={3}>
-          <CourseCard
-            image={phonetics}
-            label="SS2"
-            title="English"
-            description="Phonetics and lingual expressions part one"
-            action={{
-              type: "internal",
-              route: "/pages/profile/profile-overview",
-              color: "info",
-              label: "view course",
-            }}
-            authors={[
-              { image: team3, name: "Nick Daniel" },
-              { image: team4, name: "Peterson" },
-              { image: team1, name: "Elena Morison" },
-              { image: team2, name: "Ryan Milly" },
-            ]}
-          />
-        </Grid>
-        <Grid item xs={12} md={6} xl={3}>
-          <CourseCard
-            image={chemistry}
-            label="SS1"
-            title="Chemistry"
-            description="Introduction to organic chemistry"
-            action={{
-              type: "internal",
-              route: "/pages/profile/profile-overview",
-              color: "info",
-              label: "view course",
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6} xl={3}>
-          <CourseCard
-            image={chemistry}
-            label="SS3"
-            title="Chemistry"
-            description="Radioactive Isotopes"
-            action={{
-              type: "internal",
-              route: "/pages/profile/profile-overview",
-              color: "info",
-              label: "view course",
-            }}
-          />
-        </Grid>
-
-        <Grid item xs={12} md={6} xl={3}>
-          <CourseCard
-            image={chemistry}
-            label="SS2"
-            title="Chemistry"
-            description="Acid, Base and Salts"
-            action={{
-              type: "internal",
-              route: "/pages/profile/profile-overview",
-              color: "info",
-              label: "view course",
-            }}
-          />
-        </Grid>
-      </Grid>
+      )}
     </SuiBox>
   );
 }
 
 export default CourseList;
+
+// CourseList.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };

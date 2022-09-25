@@ -39,11 +39,8 @@ Coded by www.creative-tim.com
 import Dashboard from "layouts/schooled-dashboard";
 import Levels from "layouts/levels";
 import Courses from "layouts/courses";
-//import Tables from "layouts/tables";
-// import Billing from "layouts/billing";
-// import VirtualReality from "layouts/virtual-reality";
-// import RTL from "layouts/rtl";
-import Profile from "layouts/schooled-profile";
+import Quiz from "layouts/schooled-quizes";
+import Exams from "layouts/schooled-exams";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import SignOut from "layouts/authentication/sign-out";
@@ -54,7 +51,6 @@ import Shop from "examples/Icons/Shop";
 // import Settings from "examples/Icons/Settings";
 import Document from "examples/Icons/Document";
 import SpaceShip from "examples/Icons/SpaceShip";
-import CustomerSupport from "examples/Icons/CustomerSupport";
 // import CreditCard from "examples/Icons/CreditCard";
 import Cube from "examples/Icons/Cube";
 
@@ -90,57 +86,27 @@ const routes = [
     noCollapse: true,
     protected: true,
   },
-  // {
-  //   type: "collapse",
-  //   name: "Tables",
-  //   key: "tables",
-  //   route: "/tables",
-  //   icon: <Office size="12px" />,
-  //   component: Tables,
-  //   noCollapse: true,
-  //   protected: true,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Billing",
-  //   key: "billing",
-  //   route: "/billing",
-  //   icon: <CreditCard size="12px" />,
-  //   component: Billing,
-  //   noCollapse: true,
-  //   protected: true,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "Virtual Reality",
-  //   key: "virtual-reality",
-  //   route: "/virtual-reality",
-  //   icon: <Cube size="12px" />,
-  //   component: VirtualReality,
-  //   noCollapse: true,
-  //   protected: true,
-  // },
-  // {
-  //   type: "collapse",
-  //   name: "RTL",
-  //   key: "rtl",
-  //   route: "/rtl",
-  //   icon: <Settings size="12px" />,
-  //   component: RTL,
-  //   noCollapse: true,
-  //   protected: true,
-  // },
-  { type: "title", title: "Account Pages", key: "account-pages" },
   {
     type: "collapse",
-    name: "Profile",
-    key: "profile",
-    route: "/profile",
-    icon: <CustomerSupport size="12px" />,
-    component: Profile,
+    name: "Quiz",
+    key: "quiz",
+    route: "/quiz",
+    icon: <Cube size="12px" />,
+    component: Quiz,
     noCollapse: true,
     protected: true,
   },
+  {
+    type: "collapse",
+    name: "Exams Lab",
+    key: "exams",
+    route: "/exams",
+    icon: <Cube size="12px" />,
+    component: Exams,
+    noCollapse: true,
+    protected: true,
+  },
+  { type: "title", title: "Account", key: "account-pages" },
   {
     type: "none",
     name: "Sign In",

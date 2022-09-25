@@ -18,7 +18,7 @@ export default makeStyles(({ palette, boxShadows, functions, borders }) => {
 
     courseCard_imageContainer: {
       boxShadow: xl,
-      width: "100.25%",
+      width: "80%",
       height: xl,
       borderRadius: borderRadius.xl,
       position: "relative",

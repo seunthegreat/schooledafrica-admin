@@ -131,7 +131,6 @@ function addCourses() {
         image,
         token,
       });
-      console.log(response);
       setLoading(false);
       let error = response.data.error;
       if (error === false) {
