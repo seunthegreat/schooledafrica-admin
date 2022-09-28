@@ -41,6 +41,12 @@ import Levels from "layouts/levels";
 import Courses from "layouts/courses";
 import Quiz from "layouts/schooled-quizes";
 import Exams from "layouts/schooled-exams";
+
+//--Statement pages--//
+import Subscriptions from "layouts/schooled-subscriptions";
+import Payments from "layouts/schooled-payments";
+import Transactions from "layouts/schooled-transactions";
+
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
 import SignOut from "layouts/authentication/sign-out";
@@ -103,6 +109,37 @@ const routes = [
     route: "/exams",
     icon: <Cube size="12px" />,
     component: Exams,
+    noCollapse: true,
+    protected: true,
+  },
+  { type: "title", title: "Statements", key: "statement-pages" },
+  {
+    type: "collapse",
+    name: "Subscriptions",
+    key: "subscriptions",
+    route: "/subscriptions",
+    icon: <Cube size="12px" />,
+    component: Subscriptions,
+    noCollapse: true,
+    protected: true,
+  },
+  {
+    type: "collapse",
+    name: "Payments",
+    key: "payments",
+    route: "/payments",
+    icon: <Cube size="12px" />,
+    component: Payments,
+    noCollapse: true,
+    protected: true,
+  },
+  {
+    type: "collapse",
+    name: "Transactions",
+    key: "transactions",
+    route: "/transactions",
+    icon: <Cube size="12px" />,
+    component: Transactions,
     noCollapse: true,
     protected: true,
   },

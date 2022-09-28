@@ -23,7 +23,7 @@ export const ProtectedRoute = ({ ...rest }) => {
   if (!user || !user.token || user.token === "") {
     return (
       <SweetAlert
-        title="Invalid Session!"
+        title="Session Expired!"
         onCancel={handleRouting}
         onConfirm={handleRouting}
         confirmBtnCssClass={"px-5"}
