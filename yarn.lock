@@ -64,7 +64,7 @@
     "json5" "^2.2.1"
     "semver" "^6.3.0"
 
-"@babel/eslint-parser@^7.16.3":
+"@babel/eslint-parser@^7.16.3", "@babel/eslint-parser@^7.19.1":
   "integrity" "sha512-AqNf2QWt1rtu2/1rLswy6CDP7H9Oh3mMhk177Y67Rg8d7RD9WfOLLv8CGn6tisFvS2htm86yIe1yLF6I1UDaGQ=="
   "resolved" "https://registry.npmjs.org/@babel/eslint-parser/-/eslint-parser-7.19.1.tgz"
   "version" "7.19.1"
@@ -9525,10 +9525,10 @@
     "browserslist" "^4.16.6"
     "postcss-selector-parser" "^6.0.4"
 
-"stylis-plugin-rtl@^2.1.0":
-  "integrity" "sha512-q6xIkri6fBufIO/sV55md2CbgS5c6gg9EhSVATtHHCdOnbN/jcI0u3lYhNVeuI65c4lQPo67g8xmq5jrREvzlg=="
-  "resolved" "https://registry.npmjs.org/stylis-plugin-rtl/-/stylis-plugin-rtl-2.1.1.tgz"
-  "version" "2.1.1"
+"stylis-plugin-rtl@^2.0.2":
+  "integrity" "sha512-3xKsCTUs/Ab6Kp/NjwTEvcS6eI2ZbIORJssvw2S+H20DlUIp8ZC3drQ/0V3G5P559A4xGwA+XV6ZSJHhEoRvhw=="
+  "resolved" "https://registry.npmjs.org/stylis-plugin-rtl/-/stylis-plugin-rtl-2.0.2.tgz"
+  "version" "2.0.2"
   dependencies:
     "cssjanus" "^2.0.1"
 
