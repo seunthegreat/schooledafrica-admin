@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import SuiTypography from "components/SuiTypography";
 
-function CreateRows({ email, packageName, amount, pay_by, status, date }, key) {
+function CreateRows({ email, subscription, amount, method, status, date }, key) {
   return {
     id: (
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
@@ -13,9 +13,9 @@ function CreateRows({ email, packageName, amount, pay_by, status, date }, key) {
         {email}
       </SuiTypography>
     ),
-    package: (
+    subscription: (
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
-        {packageName}
+        {subscription}
       </SuiTypography>
     ),
     amount: (
@@ -25,7 +25,7 @@ function CreateRows({ email, packageName, amount, pay_by, status, date }, key) {
     ),
     method: (
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
-        {pay_by}
+        {method}
       </SuiTypography>
     ),
     status: (
@@ -43,17 +43,17 @@ function CreateRows({ email, packageName, amount, pay_by, status, date }, key) {
 
 CreateRows.defaultProps = {
   email: "Nil",
-  package: "Nil",
+  subscription: "Nil",
   amount: "Nil",
-  pay_by: "Nil",
+  method: "Nil",
   status: "Nil",
   date: "Nil",
 };
 CreateRows.propTypes = {
   email: PropTypes.string,
-  package: PropTypes.string,
+  subscription: PropTypes.string,
   amount: PropTypes.string,
-  pay_by: PropTypes.string,
+  method: PropTypes.string,
   status: PropTypes.string,
   date: PropTypes.string,
 };

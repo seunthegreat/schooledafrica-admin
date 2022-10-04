@@ -5,12 +5,12 @@ import SuiBox from "components/SuiBox";
 import CreateRows from "../molecules/Rows";
 
 import { useAuth } from "auth-context/auth.context";
-import TransactionApi from "api/Transaction";
+import SubscriptionApi from "api/Subscription";
 
 // Custom styles for the Tables
 import styles from "layouts/tables/styles";
 
-import transactionsTableData from "../../data/columnData";
+import subscriptionsTableData from "../../data/columnData";
 import AllSubscriptions from "../organisms/AllSubscriptions";
 
 const renderData = (data) => {
@@ -26,7 +26,7 @@ const renderData = (data) => {
 
 function History() {
   const classes = styles();
-  const { columns: prCols } = transactionsTableData;
+  const { columns: prCols } = subscriptionsTableData;
 
   let { user } = useAuth();
   const [history, setHistory] = useState([]);
@@ -43,7 +43,7 @@ function History() {
   const fetchHistory = async () => {
     const token = user.token;
     try {
-      let response = await TransactionApi.GetHistory({ token });
+      let response = await SubscriptionApi.GetHistory({ token });
       setLoading(false);
       setHistory(response.data.response);
     } catch (err) {

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import SuiTypography from "components/SuiTypography";
 
-function CreateRows({ email, packageName, starts, ends, status }, key) {
+function CreateRows({ email, subscription, duration, starts, ends, status }, key) {
   return {
     id: (
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
@@ -13,9 +13,14 @@ function CreateRows({ email, packageName, starts, ends, status }, key) {
         {email}
       </SuiTypography>
     ),
-    package: (
+    subscription: (
       <SuiTypography variant="caption" textColor="text" fontWeight="medium">
-        {packageName}
+        {subscription}
+      </SuiTypography>
+    ),
+    duration: (
+      <SuiTypography variant="caption" textColor="text" fontWeight="medium">
+        {duration}
       </SuiTypography>
     ),
     starts: (
@@ -38,14 +43,16 @@ function CreateRows({ email, packageName, starts, ends, status }, key) {
 
 CreateRows.defaultProps = {
   email: "Nil",
-  package: "Nil",
+  subscription: "Nil",
+  duration: "Nil",
   starts: "Nil",
   ends: "Nil",
   status: "Nil",
 };
 CreateRows.propTypes = {
   email: PropTypes.string,
-  package: PropTypes.string,
+  subscription: PropTypes.string,
+  duration: PropTypes.string,
   starts: PropTypes.string,
   ends: PropTypes.string,
   status: PropTypes.string,

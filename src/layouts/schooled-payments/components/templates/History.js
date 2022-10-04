@@ -5,20 +5,20 @@ import SuiBox from "components/SuiBox";
 import CreateRows from "../molecules/Rows";
 
 import { useAuth } from "auth-context/auth.context";
-import TransactionApi from "api/Transaction";
+import PaymentApi from "api/Payment";
 
 // Custom styles for the Tables
 import styles from "layouts/tables/styles";
 
-import transactionsTableData from "../../data/columnData";
+import paymentsTableData from "../../data/columnData";
 import AllPayments from "../organisms/AllPayments";
 
 const renderData = (data) => {
   let rows = [];
   for (let i = 0; i < data.length; i++) {
-    let transaction = data[i];
+    let payment = data[i];
     let key = i;
-    let row = CreateRows(transaction, key);
+    let row = CreateRows(payment, key);
     rows.push(row);
   }
   return rows;
@@ -26,7 +26,7 @@ const renderData = (data) => {
 
 function History() {
   const classes = styles();
-  const { columns: prCols } = transactionsTableData;
+  const { columns: prCols } = paymentsTableData;
 
   let { user } = useAuth();
   const [history, setHistory] = useState([]);
@@ -43,7 +43,7 @@ function History() {
   const fetchHistory = async () => {
     const token = user.token;
     try {
-      let response = await TransactionApi.GetHistory({ token });
+      let response = await PaymentApi.GetHistory({ token });
       setLoading(false);
       setHistory(response.data.response);
     } catch (err) {
