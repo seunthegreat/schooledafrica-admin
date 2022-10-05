@@ -1,11 +1,11 @@
 export default {
   columns: [
-    { name: "id", align: "left" },
-    { name: "email", align: "left" },
-    { name: "subscription", align: "left" },
-    { name: "duration", align: "left" },
-    { name: "starts", align: "left" },
-    { name: "ends", align: "left" },
-    { name: "status", align: "left" },
+    { id: 0, name: "id", align: "left" },
+    { id: 1, name: "email", align: "left" },
+    { id: 2, name: "subscription", align: "left" },
+    { id: 3, name: "duration", align: "left" },
+    { id: 4, name: "starts", align: "left" },
+    { id: 5, name: "ends", align: "left" },
+    { id: 6, name: "status", align: "left" },
   ],
 };

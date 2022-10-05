@@ -77,12 +77,12 @@ function Table({ columns, rows }) {
   const renderRows = rows.map((row, key) => {
     const rowKey = `row-${key}`;
 
-    const tableRow = columns.map(({ name, align }) => {
+    const tableRow = columns.map(({ name, align, id }) => {
       let template;
 
       if (Array.isArray(row[name])) {
         template = (
-          <SuiBox key={row[name][1]} component="td" p={1}>
+          <SuiBox key={row[id]} component="td" p={1}>
             <SuiBox display="flex" alignItems="center" py={0.5} px={1}>
               <SuiBox mr={2}>
                 <SuiAvatar src={row[name][0]} name={row[name][1]} variant="rounded" size="sm" />
@@ -95,7 +95,7 @@ function Table({ columns, rows }) {
         );
       } else {
         template = (
-          <SuiBox key={row[name]} component="td" p={1} textAlign={align}>
+          <SuiBox key={row[id]} component="td" p={1} textAlign={align}>
             <SuiTypography
               variant="button"
               fontWeight="regular"

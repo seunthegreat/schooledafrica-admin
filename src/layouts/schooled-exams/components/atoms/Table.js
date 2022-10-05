@@ -75,7 +75,7 @@ function Table({ columns, rows }) {
   });
 
   const renderRows = rows.map((row, key) => {
-    const rowKey = `row-${key}`;
+    //const rowKey = `row-${key}`;
 
     const tableRow = columns.map(({ name, align, id }) => {
       let template;
@@ -111,7 +111,7 @@ function Table({ columns, rows }) {
       return template;
     });
 
-    return <TableRow key={rowKey}>{tableRow}</TableRow>;
+    return <TableRow key={key}>{tableRow}</TableRow>;
   });
 
   return useMemo(

@@ -6,6 +6,9 @@ class ExamApi {
       headers: { Authorization: `Bearer ${token}` },
     });
   };
+  static getExams = (token) => {
+    return axios.get(`${base}/getExams`, { headers: { Authorization: `Bearer ${token}` } });
+  };
 }
 
 let base = "/api/auth";
