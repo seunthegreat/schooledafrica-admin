@@ -24,6 +24,10 @@ function MiniStats() {
   let income = stats ? stats.income : 0;
   let totalIncome = income ? income.toLocaleString() : 0;
   let activeSubscribers = stats ? stats.active_subscriptions : 0;
+  let courses = stats ? stats.courses : 0;
+  let levels = stats ? stats.levels : 0;
+  let quizzes = stats ? stats.quizzes : 0;
+  let exams = stats ? stats.exams : 0;
 
   const clearState = () => {
     setStats(initialState.stats);
@@ -55,6 +59,10 @@ function MiniStats() {
           payments={payments}
           totalIncome={totalIncome}
           activeSubscribers={activeSubscribers}
+          courses={courses}
+          levels={levels}
+          quizzes={quizzes}
+          exams={exams}
         />
       )}
     </SuiBox>
