@@ -104,7 +104,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Exams Lab",
+    name: "Exam Lab",
     key: "exams",
     route: "/exams",
     icon: <Cube size="12px" />,
