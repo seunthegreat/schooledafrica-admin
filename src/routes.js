@@ -126,7 +126,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Questions",
+    name: "Edit Question",
     key: "questions",
     route: "/questions",
     icon: <Cube size="12px" />,
