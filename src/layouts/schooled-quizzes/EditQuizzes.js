@@ -1,7 +1,7 @@
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
-function Quizes() {
+function EditQuizzes() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
@@ -9,4 +9,4 @@ function Quizes() {
   );
 }
 
-export default Quizes;
+export default EditQuizzes;

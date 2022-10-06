@@ -39,7 +39,8 @@ Coded by www.creative-tim.com
 import Dashboard from "layouts/schooled-dashboard";
 import Levels from "layouts/levels";
 import Courses from "layouts/courses";
-import Quiz from "layouts/schooled-quizes";
+import Quiz from "layouts/schooled-quizzes";
+import EditQuizzes from "layouts/schooled-quizzes/EditQuizzes";
 import Exams from "layouts/schooled-exams";
 import Questions from "layouts/schooled-questions";
 
@@ -95,11 +96,21 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Quiz",
+    name: "Manage Quizzes",
     key: "quiz",
     route: "/quiz",
     icon: <Cube size="12px" />,
     component: Quiz,
+    noCollapse: true,
+    protected: true,
+  },
+  {
+    type: "collapse",
+    name: "Edit Quizzes",
+    key: "editQuizzes",
+    route: "/edit-quizzes",
+    icon: <Cube size="12px" />,
+    component: EditQuizzes,
     noCollapse: true,
     protected: true,
   },
