@@ -13,6 +13,12 @@ class ModulesApi {
     });
   };
 
+  static GetModulesContent = (data) => {
+    return axios.get(`${base}/getModuleContents/${data.module_id}`, {
+      headers: { Authorization: `Bearer ${data.token}` },
+    });
+  };
+
   static DeleteModule = (data) => {
     return axios.delete(`${base}/deleteCourse/${data.id}`, {
       headers: { Authorization: `Bearer ${data.token}` },
