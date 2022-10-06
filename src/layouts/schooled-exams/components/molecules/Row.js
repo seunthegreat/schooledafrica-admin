@@ -1,7 +1,23 @@
 import PropTypes from "prop-types";
 import SuiTypography from "components/SuiTypography";
+import SuiButton from "components/SuiButton";
+import { useAuth } from "auth-context/auth.context";
+import ExamApi from "api/Exam";
 
 function CreateRows({ id, name, year, exam_type }) {
+  let { user } = useAuth();
+
+  const deleteExam = async () => {
+    const token = user.token;
+    let examId = id;
+    try {
+      let response = await ExamApi.deleteExam({ examId, token });
+      console.log(response.data.response);
+      window.location.reload(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return {
     exam_id: (
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
@@ -27,6 +43,22 @@ function CreateRows({ id, name, year, exam_type }) {
       <SuiTypography variant="button" textColor="text" fontWeight="medium">
         {exam_type}
       </SuiTypography>
+    ),
+    option: (
+      <SuiTypography
+        component="a"
+        href="/questions"
+        variant="caption"
+        textColor="secondary"
+        fontWeight="medium"
+      >
+        View
+      </SuiTypography>
+    ),
+    action: (
+      <SuiButton variant="gradient" buttonColor="info" onClick={deleteExam}>
+        Delete
+      </SuiButton>
     ),
   };
 }
