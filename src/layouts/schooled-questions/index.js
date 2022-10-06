@@ -8,10 +8,13 @@ import Card from "@mui/material/Card";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 
+import { TagsInput } from "react-tag-input-component";
+
 import { toolbarConfig } from "./constant";
 
 function Questions() {
   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
+  const [answers, setAnswers] = useState([]);
 
   const onChange = (value) => {
     setValue(value);
@@ -31,6 +34,12 @@ function Questions() {
           <SuiTypography variant="caption" my={2} gutterBottom>
             Shortly describe the question.
           </SuiTypography>
+          <TagsInput
+            value={answers}
+            onChange={setAnswers}
+            name="fruits"
+            placeHolder="enter fruits"
+          />
         </SuiBox>
       </Card>
     </DashboardLayout>
