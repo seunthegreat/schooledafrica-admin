@@ -11,6 +11,10 @@ import SuiButton from "components/SuiButton";
 
 import { TagsInput } from "react-tag-input-component";
 
+import { Grid } from "@mui/material";
+import QuizQuery from "./components/templates/QuizQuery";
+import WorkWithQuiz from "./components/templates/WorkWithQuiz";
+
 import Select from "react-select";
 import { makeStyles } from "@mui/styles";
 
@@ -74,6 +78,16 @@ function EditQuizzes() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
+      <SuiBox mb={3}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} lg={7}>
+            <QuizQuery />
+          </Grid>
+          <Grid item xs={12} lg={5}>
+            <WorkWithQuiz />
+          </Grid>
+        </Grid>
+      </SuiBox>
       <SuiBox alignContent="center" display="flex" justifyContent="center">
         <Card className={classes.container}>
           <SuiBox p={2} height="100%">
