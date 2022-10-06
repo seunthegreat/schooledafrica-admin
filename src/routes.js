@@ -41,6 +41,7 @@ import Levels from "layouts/levels";
 import Courses from "layouts/courses";
 import Quiz from "layouts/schooled-quizes";
 import Exams from "layouts/schooled-exams";
+import Questions from "layouts/schooled-questions";
 
 //--Statement pages--//
 import Subscriptions from "layouts/schooled-subscriptions";
@@ -109,6 +110,16 @@ const routes = [
     route: "/exams",
     icon: <Cube size="12px" />,
     component: Exams,
+    noCollapse: true,
+    protected: true,
+  },
+  {
+    type: "collapse",
+    name: "Questions",
+    key: "questions",
+    route: "/questions",
+    icon: <Cube size="12px" />,
+    component: Questions,
     noCollapse: true,
     protected: true,
   },
