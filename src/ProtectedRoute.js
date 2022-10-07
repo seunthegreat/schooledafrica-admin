@@ -8,8 +8,6 @@ import { useJwt } from "react-jwt";
 export const ProtectedRoute = ({ ...rest }) => {
   const history = useHistory();
   let { user } = useAuth();
-  const { isExpired } = useJwt(user.token);
-
   if (!user || !user.token || user.token === "") {
     return (
       <SweetAlert
@@ -20,7 +18,7 @@ export const ProtectedRoute = ({ ...rest }) => {
       />
     );
   }
-
+  const { isExpired } = useJwt(user.token);
   if (isExpired) {
     return (
       <SweetAlert

@@ -13,7 +13,7 @@ const QuestionCard = ({
   ans_3,
   ans_4,
   ans_5,
-  correct_ans,
+  correct_answer,
   index,
   length,
   onPress,
@@ -38,28 +38,28 @@ const QuestionCard = ({
               {Question}
             </SuiTypography>
           </SuiBox>
-          <SuiBox backgroundColor={correct_ans === "A" ? "#F2FCEC" : null} px={2} mt={1}>
+          <SuiBox backgroundColor={correct_answer === "A" ? "#F2FCEC" : null} px={2} mt={1}>
             <SuiTypography variant="caption" my={2} gutterBottom>
               A. {ans_1}
             </SuiTypography>
           </SuiBox>
-          <SuiBox backgroundColor={correct_ans === "B" ? "#F2FCEC" : null} px={2}>
+          <SuiBox backgroundColor={correct_answer === "B" ? "#F2FCEC" : null} px={2}>
             <SuiTypography variant="caption" my={2} gutterBottom>
               B. {ans_2}
             </SuiTypography>
           </SuiBox>
-          <SuiBox backgroundColor={correct_ans === "C" ? "#F2FCEC" : null} px={2}>
+          <SuiBox backgroundColor={correct_answer === "C" ? "#F2FCEC" : null} px={2}>
             <SuiTypography variant="caption" my={2} gutterBottom>
               C. {ans_3}
             </SuiTypography>
           </SuiBox>
-          <SuiBox backgroundColor={correct_ans === "D" ? "#F2FCEC" : null} px={2}>
+          <SuiBox backgroundColor={correct_answer === "D" ? "#F2FCEC" : null} px={2}>
             <SuiTypography variant="caption" my={2} gutterBottom>
               D. {ans_4}
             </SuiTypography>
           </SuiBox>
           {ans_5 && (
-            <SuiBox backgroundColor={correct_ans === "E" ? "#F2FCEC" : null} px={2}>
+            <SuiBox backgroundColor={correct_answer === "E" ? "#F2FCEC" : null} px={2}>
               <SuiTypography variant="caption" my={2} gutterBottom>
                 E. {ans_5}
               </SuiTypography>
@@ -78,9 +78,9 @@ QuestionCard.propTypes = {
   ans_3: PropTypes.string,
   ans_4: PropTypes.string,
   ans_5: PropTypes.string,
-  correct_ans: PropTypes.string,
-  index: PropTypes.Number,
-  length: PropTypes.Number,
+  correct_answer: PropTypes.string,
+  index: PropTypes.number,
+  length: PropTypes.number,
   onPress: PropTypes.func,
 };
 

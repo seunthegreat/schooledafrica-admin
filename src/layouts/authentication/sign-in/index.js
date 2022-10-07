@@ -101,12 +101,7 @@ function SignIn() {
     >
       {user && user.token ? (
         <div>
-          <h3 style={{ textAlign: "center" }}>You are already signed in.</h3>
-          <SuiBox mt={4} mb={1}>
-            <SuiButton variant="gradient" buttonColor="info" fullWidth onClick={login}>
-              {`Let's go`}
-            </SuiButton>
-          </SuiBox>
+          <h3 style={{ textAlign: "left" }}>You session has expired. Kindly reload to continue</h3>
         </div>
       ) : (
         <SuiBox component="form" role="form">
