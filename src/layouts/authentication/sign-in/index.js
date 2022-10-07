@@ -70,9 +70,8 @@ function SignIn() {
         email,
         password,
       });
-      console.log(response);
-      if (response.data && response.data.success === false) {
-        return setError(response.data.msg);
+      if (response.data && response.data.error) {
+        return setError(response.data.response);
       }
       return setProfile(response);
     } catch (err) {
@@ -85,9 +84,10 @@ function SignIn() {
   };
 
   const setProfile = async (response) => {
-    let user = { ...response.data.user };
+    let user = { ...response.data.response };
     user.token = response.data.token;
     user = JSON.stringify(user);
+    //console.log(user);
     setUser(user);
     localStorage.setItem("user", user);
     return history.push("/dashboard");

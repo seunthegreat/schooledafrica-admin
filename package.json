@@ -45,6 +45,7 @@
         "react-flatpickr": "^3.10.7",
         "react-github-btn": "^1.2.1",
         "react-images-uploading": "^3.1.7",
+        "react-jwt": "^1.1.7",
         "react-loading": "^2.0.3",
         "react-router-dom": "^5.2.0",
         "react-rte": "^0.16.5",
