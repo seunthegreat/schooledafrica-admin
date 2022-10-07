@@ -15,9 +15,6 @@ import { TextField } from "@mui/material";
 import wavesWhite from "assets/images/shapes/waves-white.svg";
 import rocketWhite from "assets/images/illustrations/rocket-white.png";
 
-import AddExam from "../AddExam";
-import WorkWithExam from "../WorkWithExam";
-
 import ExamApi from "api/Exam";
 import { useAuth } from "auth-context/auth.context";
 
@@ -50,16 +47,6 @@ function BuildByDevelopers() {
   return (
     <Card>
       <SuiBox p={2}>
-        <SuiBox mb={3}>
-          <Grid container spacing={3}>
-            <Grid item xs={12} lg={7}>
-              <AddExam />
-            </Grid>
-            <Grid item xs={12} lg={5}>
-              <WorkWithExam />
-            </Grid>
-          </Grid>
-        </SuiBox>
         <Grid container spacing={3}>
           <Grid item xs={12} lg={6}>
             <SuiBox display="flex" flexDirection="column" height="100%">

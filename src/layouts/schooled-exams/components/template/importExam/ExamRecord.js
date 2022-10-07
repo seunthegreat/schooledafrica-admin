@@ -13,17 +13,18 @@ import styles from "layouts/tables/styles";
 import examsTableData from "../../../data/columnData";
 import AllExams from "../../organisms/AllExams";
 
+const renderData = (data) => {
+  let rows = [];
+  for (let i = 0; i < data.length; i++) {
+    let transaction = data[i];
+    let key = i;
+    let row = CreateRows(transaction, key);
+    rows.push(row);
+  }
+  return rows;
+};
+
 function ExamRecord() {
-  const renderData = (data) => {
-    let rows = [];
-    for (let i = 0; i < data.length; i++) {
-      let transaction = data[i];
-      let key = i;
-      let row = CreateRows(transaction, key);
-      rows.push(row);
-    }
-    return rows;
-  };
   const classes = styles();
   const { columns: prCols } = examsTableData;
 
@@ -50,7 +51,6 @@ function ExamRecord() {
       console.log(err);
     }
   };
-
   useEffect(() => {
     fetchHistory();
     return () => {

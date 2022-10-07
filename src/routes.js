@@ -126,13 +126,13 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Questions",
+    name: "Edit Question",
     key: "questions",
     route: "/questions",
     icon: <Cube size="12px" />,
     component: Questions,
     noCollapse: true,
-    protected: false,
+    protected: true,
   },
   { type: "title", title: "Statements", key: "statement-pages" },
   {
