@@ -116,7 +116,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Exam Lab",
+    name: "Manage Exams",
     key: "exams",
     route: "/exams",
     icon: <Cube size="12px" />,
@@ -126,7 +126,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Edit Question",
+    name: "Edit Questions",
     key: "questions",
     route: "/questions",
     icon: <Cube size="12px" />,
