@@ -14,11 +14,47 @@ import { TagsInput } from "react-tag-input-component";
 import { Grid } from "@mui/material";
 import QuizQuery from "./components/templates/QuizQuery";
 import WorkWithQuiz from "./components/templates/WorkWithQuiz";
+import QuestionCard from "./components/atoms/QuestionCard";
 
 import Select from "react-select";
 import { makeStyles } from "@mui/styles";
 
 import { toolbarConfig } from "./constant";
+
+const questions = [
+  {
+    question: "An angular 2 project written in typescript is* transpiled to javascript.",
+    ans_1: "Love me",
+    ans_2: "hate me",
+    ans_3: "want me too",
+    ans_4: "fuck off",
+    correct_ans: "A",
+  },
+  {
+    question: "Which of the following additional features are provided to the developer",
+    ans_1: "Love me",
+    ans_2: "hate me",
+    ans_3: "want me too",
+    ans_4: "fuck off",
+    correct_ans: "B",
+  },
+  {
+    question: "Luma is a beautifully crafted user interface for modern Education Platforms",
+    ans_1: "Love me",
+    ans_2: "hate me",
+    ans_3: "want me too",
+    ans_4: "fuck off",
+    correct_ans: "D",
+  },
+  {
+    question: "What is your name",
+    ans_1: "Amaka",
+    ans_2: "Williams",
+    ans_3: "Samuel",
+    ans_4: "David",
+    correct_ans: "C",
+  },
+];
 
 function EditQuizzes() {
   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
@@ -26,6 +62,15 @@ function EditQuizzes() {
   const [optionArr, setOptionArr] = useState([]);
   const [answer, setAnswer] = useState(null);
   //const [answers, setAnswers] = useState([]);
+
+  const [questionArr, setQuestionArr] = useState(questions);
+  const removeQuestion = (index) => {
+    setQuestionArr([...questionArr.slice(0, index), ...questionArr.slice(index + 1)]);
+  };
+
+  const addQuiz = (obj) => {
+    setQuestionArr((current) => [...current, obj]);
+  };
 
   const onChange = (value) => {
     setValue(value);
@@ -53,13 +98,29 @@ function EditQuizzes() {
       option["label"] = label.charAt(0).toUpperCase() + label.slice(1);
       optionArr.push(option);
     }
-    console.log("Options", optionArr);
+    //console.log("Options", optionArr);
     setOptionArr(optionArr);
   };
 
   const handleSelectAnswer = (value) => {
     setBoxHeight(null);
-    setAnswer(value.value);
+    let correctAnswer = value.value;
+
+    if (optionArr[0].value === correctAnswer) {
+      return setAnswer("A");
+    }
+
+    if (optionArr[1].value === correctAnswer) {
+      return setAnswer("B");
+    }
+
+    if (optionArr[2].value === correctAnswer) {
+      return setAnswer("C");
+    }
+
+    if (optionArr[3].value === correctAnswer) {
+      return setAnswer("D");
+    }
   };
 
   const handleAddQuiz = () => {
@@ -72,6 +133,7 @@ function EditQuizzes() {
       correct_ans: answer,
     };
     console.log(body);
+    addQuiz(body);
   };
 
   const classes = useStyles();
@@ -86,6 +148,27 @@ function EditQuizzes() {
           <Grid item xs={12} lg={5}>
             <WorkWithQuiz />
           </Grid>
+        </Grid>
+      </SuiBox>
+      <SuiBox my={4} alignContent="center" display="flex" justifyContent="center">
+        <Grid container spacing={3}>
+          {questionArr.map((e, index) => {
+            return (
+              <Grid item xs={12} lg={4} key={index}>
+                <QuestionCard
+                  question={e.question}
+                  ans_1={e.ans_1}
+                  ans_2={e.ans_2}
+                  ans_3={e.ans_3}
+                  ans_4={e.ans_3}
+                  correct_ans={e.correct_ans}
+                  index={index}
+                  length={questionArr.length}
+                  onPress={() => removeQuestion(index)}
+                />
+              </Grid>
+            );
+          })}
         </Grid>
       </SuiBox>
       <SuiBox alignContent="center" display="flex" justifyContent="center">

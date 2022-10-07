@@ -37,7 +37,7 @@ function BuildByDevelopers() {
       let response = await CourseApi.GetCourses({ token });
       let coursesList = response.data.response;
       if (coursesList !== null) {
-        console.log(response.data.response);
+        //console.log(response.data.response);
         let optionArr = [];
         let options = response.data.response;
 
@@ -74,7 +74,7 @@ function BuildByDevelopers() {
       let response = await ModulesApi.GetModules(data);
       let modulesList = response.data.response;
       if (modulesList !== null) {
-        console.log(response.data.response);
+        //console.log(response.data.response);
         let optionArr = [];
         let options = response.data.response;
         for (let i = 0; i < options.length; i++) {
@@ -103,7 +103,7 @@ function BuildByDevelopers() {
       let response = await ModulesApi.GetModulesContent(data);
       let contentList = response.data.response;
       if (contentList !== null) {
-        console.log("contents", response.data.response);
+        //console.log("contents", response.data.response);
         let optionArr = [];
         let options = response.data.response;
         for (let i = 0; i < options.length; i++) {
