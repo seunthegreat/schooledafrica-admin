@@ -1,9 +1,9 @@
 import axios from "./index";
 
 class LevelApi {
-  static AddLevel = (data) => {
-    return axios.post(`${base}/addLevel`, data, {
-      headers: { Authorization: `Bearer ${data.token}` },
+  static AddLevel = ({ body, token }) => {
+    return axios.post(`${base}/addLevel`, body, {
+      headers: { Authorization: `Bearer ${token}` },
     });
   };
 
