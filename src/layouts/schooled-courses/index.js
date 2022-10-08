@@ -1,27 +1,25 @@
 import React, { useState, useEffect } from "react";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
-import { Grid } from "@mui/material";
-import styles from "./styles";
-import EditIcon from "@mui/icons-material/Edit";
+import CourseList from "./components/molecules/Courses";
+//import { Grid } from "@mui/material";
 
 import LevelApi from "api/Level";
 import CourseApi from "api/Course";
 import { useAuth } from "auth-context/auth.context";
 
 import Select from "react-select";
+//import CourseCard from "./components/atom/CourseCard";
 
-import kal from "assets/images/kal-visuals-square.jpg";
+//import kal from "assets/images/kal-visuals-square.jpg";
 
 function Courses() {
-  const classes = styles();
   let { user } = useAuth();
 
   const [levels, setLevels] = useState([]);
+  const [courses, setCourses] = useState([]);
 
   const fetchLevels = async () => {
     const token = user.token;
@@ -78,7 +76,7 @@ function Courses() {
           optionArr.push(option);
         }
         console.log("Courses :", optionArr);
-        //setCourses(optionArr);
+        setCourses(optionArr);
       }
     } catch (err) {
       console.log(err);
@@ -86,7 +84,7 @@ function Courses() {
   };
 
   const handleSelectLevel = (value) => {
-    console.log(value);
+    //console.log(value);
     //setLevelId(value.contentId);
     fetchCourses(value.levelId);
   };
@@ -101,32 +99,16 @@ function Courses() {
           <Select options={levels} onChange={handleSelectLevel} />
         </SuiBox>
       </SuiBox>
-      <SuiBox alignContent="center" display="flex" justifyContent="center">
+      {/* <SuiBox alignContent="center" display="flex" justifyContent="center">
         <Grid mt={2} container spacing={4}>
           <Grid item xs={12} lg={3}>
-            <Card className={classes.courseCard}>
-              <SuiBox customClass={classes.courseCard_imageContainer}>
-                <CardMedia
-                  sx={{ width: "100%" }}
-                  src={kal}
-                  component="img"
-                  className={classes.courseCard_image}
-                />
-                <SuiBox px={2} mb={0.5} display="flex" flexDirection="row" height="100%">
-                  <SuiBox width="80%">
-                    <SuiTypography variant="h6" fontWeight="bold" mt={1.5} gutterBottom>
-                      Law Of Indices
-                    </SuiTypography>
-                  </SuiBox>
-                  <SuiBox display="flex" width="20%" justifyContent="center" alignItems="center">
-                    <EditIcon sx={{ color: "#D3D3D3" }} />
-                  </SuiBox>
-                </SuiBox>
-              </SuiBox>
-            </Card>
+            <CourseCard title="SSS 1" image={kal} onPress={() => console.log("works")} />
           </Grid>
         </Grid>
-      </SuiBox>
+      </SuiBox> */}
+      {courses.map((e) => {
+        return <CourseList name={e.value} key={e.courseId} />;
+      })}
     </DashboardLayout>
   );
 }
