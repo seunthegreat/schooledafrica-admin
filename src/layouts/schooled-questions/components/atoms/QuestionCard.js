@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Card from "@mui/material/Card";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
-import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 
 const QuestionCard = ({
   question,
@@ -28,7 +28,7 @@ const QuestionCard = ({
               </SuiTypography>
             </SuiBox>
             <SuiBox display="flex" width="10%" justifyContent="center" alignItems="center">
-              <DeleteIcon sx={{ color: "#FF6A74" }} onClick={onPress} />
+              <EditIcon sx={{ color: "#FF6A74" }} onClick={onPress} />
             </SuiBox>
           </SuiBox>
           <SuiBox>
