@@ -1,6 +1,7 @@
 import Dashboard from "layouts/schooled-dashboard";
 import Levels from "layouts/schooled-levels";
-import Courses from "layouts/courses";
+import Courses from "layouts/schooled-courses";
+import EditCourses from "layouts/schooled-courses/EditCourses";
 import Quiz from "layouts/schooled-quizzes";
 import EditQuizzes from "layouts/schooled-quizzes/EditQuizzes";
 import Exams from "layouts/schooled-exams";
@@ -48,11 +49,21 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Courses",
+    name: "Manage Courses",
     key: "courses",
     route: "/courses",
     icon: <Cube size="12px" />,
     component: Courses,
+    noCollapse: true,
+    protected: true,
+  },
+  {
+    type: "collapse",
+    name: "Edit Courses",
+    key: "editCourses",
+    route: "/editcourses",
+    icon: <Cube size="12px" />,
+    component: EditCourses,
     noCollapse: true,
     protected: true,
   },
