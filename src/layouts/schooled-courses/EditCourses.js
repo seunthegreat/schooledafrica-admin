@@ -3,17 +3,16 @@ import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import { useLocation } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import RichTextEditor from "react-rte";
-import { toolbarConfig } from "config/constant";
-import Divider from "@mui/material/Divider";
 
 import Card from "@mui/material/Card";
 import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
-import SuiButton from "components/SuiButton";
-import SuiInput from "components/SuiInput";
+// import SuiTypography from "components/SuiTypography";
+// import SuiButton from "components/SuiButton";
+// import SuiInput from "components/SuiInput";
 import { makeStyles } from "@mui/styles";
 //import kal from "assets/images/kal-visuals-square.jpg";
 import Uploader from "./components/templates/Uploader";
+import BasicInfo from "./components/templates/BasicInfo";
 
 //import SuiButton from "components/SuiButton";
 
@@ -26,6 +25,7 @@ function EditCourses() {
   //--View visibility--//
   const [iconIsVisible, setIconIsVisible] = useState(false);
   const [imageIsVisible, setImageIsVisible] = useState(false);
+  const [basicInfoIsVisible, setBasicInfoIsVisible] = useState(false);
 
   const useStyles = makeStyles({
     titleContainer: {
@@ -66,6 +66,10 @@ function EditCourses() {
     setImageIsVisible(!imageIsVisible);
   };
 
+  const showBasicInfo = () => {
+    setBasicInfoIsVisible(!basicInfoIsVisible);
+  };
+
   useEffect(() => {
     console.log(location.state);
     let title = location.state.title;
@@ -80,58 +84,21 @@ function EditCourses() {
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <SuiBox alignContent="center" display="flex" justifyContent="center">
+      <SuiBox my={2} alignContent="center" display="flex" justifyContent="center">
         <Card className={classes.container}>
           <SuiBox p={2} height="100%">
-            <Uploader onPress={showIconContent} visible={iconIsVisible} title={"Icon"} />
-            <Uploader onPress={showImageContent} visible={imageIsVisible} title={"Image"} />
-            <SuiBox display="flex" flexDirection="column" height="100%">
-              <SuiTypography variant="h6" my={2} gutterBottom>
-                Title
-              </SuiTypography>
-              <SuiBox width="100%" backgroundColor="#F2FCEC" p={2} mb={1} sx={{ borderRadius: 2 }}>
-                <SuiTypography
-                  variant="body2"
-                  textColor="text"
-                  fontWeight="bold"
-                  my={2}
-                  gutterBottom
-                >
-                  {title}
-                </SuiTypography>
-              </SuiBox>
-              <SuiBox pb={1}>
-                <SuiInput
-                  value={title}
-                  key={"body"}
-                  placeholder={"Describe the level..."}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
-              </SuiBox>
-            </SuiBox>
-            <SuiBox display="flex" flexDirection="column" height="100%">
-              <SuiTypography variant="h6" my={2} gutterBottom>
-                Description
-              </SuiTypography>
-            </SuiBox>
-            <SuiBox width="100%" backgroundColor="#F2FCEC" p={2} mb={1} sx={{ borderRadius: 2 }}>
-              <SuiTypography variant="body2" textColor="text" fontWeight="bold" my={2} gutterBottom>
-                {description}
-              </SuiTypography>
-            </SuiBox>
-            <RichTextEditor value={value} onChange={onChange} toolbarConfig={toolbarConfig} />
-            <SuiTypography variant="caption" my={2} gutterBottom>
-              Shortly describe the course.
-            </SuiTypography>
-            <SuiBox my={4} width="100%">
-              <SuiButton fullWidth variant="gradient" buttonColor="info">
-                UPDATE
-              </SuiButton>
-            </SuiBox>
-            <SuiBox width="100%">
-              <Divider />
-            </SuiBox>
-            <Uploader />
+            <Uploader onPress={showIconContent} visible={iconIsVisible} title={"ICON"} />
+            <Uploader onPress={showImageContent} visible={imageIsVisible} title={"IMAGE"} />
+            <BasicInfo
+              headerTitle={"BASIC INFO"}
+              visible={basicInfoIsVisible}
+              onToggleInfo={showBasicInfo}
+              title={title}
+              onChangeTitle={(e) => setTitle(e.target.value)}
+              description={description}
+              editorValue={value}
+              onChangeEditor={onChange}
+            />
           </SuiBox>
         </Card>
       </SuiBox>

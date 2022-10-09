@@ -63,6 +63,7 @@ const Uploader = ({ visible, onPress, title }) => {
           width="10%"
           display="flex"
           alignItem="center"
+          justifyContent="right"
           //backgroundColor="red"
           flexDirection="row"
         >
