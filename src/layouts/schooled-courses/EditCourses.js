@@ -23,6 +23,10 @@ function EditCourses() {
   const [description, setDescription] = useState(null);
   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
 
+  //--View visibility--//
+  const [iconIsVisible, setIconIsVisible] = useState(false);
+  const [imageIsVisible, setImageIsVisible] = useState(false);
+
   const useStyles = makeStyles({
     titleContainer: {
       backgroundColor: "#F2FCEC",
@@ -53,6 +57,15 @@ function EditCourses() {
     console.log(value.toString("html"));
   };
 
+  const showIconContent = () => {
+    setIconIsVisible(!iconIsVisible);
+    console.log(iconIsVisible);
+  };
+
+  const showImageContent = () => {
+    setImageIsVisible(!imageIsVisible);
+  };
+
   useEffect(() => {
     console.log(location.state);
     let title = location.state.title;
@@ -70,14 +83,8 @@ function EditCourses() {
       <SuiBox alignContent="center" display="flex" justifyContent="center">
         <Card className={classes.container}>
           <SuiBox p={2} height="100%">
-            <SuiBox width="100%">
-              <Divider />
-            </SuiBox>
-            <Uploader />
-            <SuiBox width="100%">
-              <Divider />
-            </SuiBox>
-            <Uploader />
+            <Uploader onPress={showIconContent} visible={iconIsVisible} title={"Icon"} />
+            <Uploader onPress={showImageContent} visible={imageIsVisible} title={"Image"} />
             <SuiBox display="flex" flexDirection="column" height="100%">
               <SuiTypography variant="h6" my={2} gutterBottom>
                 Title

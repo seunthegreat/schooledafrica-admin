@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI Dashboard React - v2.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-material-ui
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useState, useEffect } from "react";
 
 // @mui material components
@@ -26,9 +11,6 @@ import Tab from "@mui/material/Tab";
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiAvatar from "components/SuiAvatar";
-
-// Soft UI Dashboard PRO React example components
-import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
 // Soft UI Dashboard PRO React icons
 import Cube from "examples/Icons/Cube";
@@ -73,7 +55,6 @@ function Header() {
 
   return (
     <SuiBox position="relative">
-      <DashboardNavbar absolute light />
       <SuiBox customClass={classes.profileHeader_background} />
       <Card className={classes.profileHeader_profile}>
         <Grid container spacing={3} alignItems="center">
