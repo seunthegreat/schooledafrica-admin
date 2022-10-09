@@ -20,6 +20,7 @@ function Courses() {
 
   const [levels, setLevels] = useState([]);
   const [courses, setCourses] = useState([]);
+  //const [modules, setModules] = useState([]);
 
   const fetchLevels = async () => {
     const token = user.token;
@@ -57,13 +58,13 @@ function Courses() {
       let response = await CourseApi.GetCoursesByLevel({ levelId, token });
       let coursesList = response.data.response;
       if (coursesList !== null) {
-        //console.log(response.data.response);
+        console.log(response.data.response);
         let optionArr = [];
         let options = response.data.response;
 
         if (options == null) {
           optionArr = [];
-          console.log("Courses :", optionArr);
+          //console.log("Courses :", optionArr);
           return;
         }
 
@@ -73,6 +74,7 @@ function Courses() {
           option["value"] = label;
           option["label"] = label.charAt(0).toUpperCase() + label.slice(1);
           option["courseId"] = options[i].id;
+          option["contents"] = options[i].contents;
           optionArr.push(option);
         }
         console.log("Courses :", optionArr);
@@ -107,7 +109,7 @@ function Courses() {
         </Grid>
       </SuiBox> */}
       {courses.map((e) => {
-        return <CourseList name={e.value} key={e.courseId} />;
+        return <CourseList name={e.value} key={e.courseId} modules={e.contents} />;
       })}
     </DashboardLayout>
   );
