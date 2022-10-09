@@ -38,8 +38,12 @@ import { useHistory } from "react-router-dom";
 
 const Courses = ({ name, modules }) => {
   const history = useHistory();
-  const handleEdit = (contents) => {
-    history.push("/editCourses", { contents: contents });
+  const handleEdit = (name, description, contents) => {
+    history.push("/editCourses", {
+      title: name,
+      description: description,
+      contents: contents,
+    });
   };
   return (
     <SuiBox width="100%">
@@ -58,7 +62,11 @@ const Courses = ({ name, modules }) => {
           {modules.map((e) => {
             return (
               <Grid item xs={12} md={6} xl={2.3} key={e.id}>
-                <CourseCard title={e.name} image={kal} onPress={() => handleEdit(e.contents)} />
+                <CourseCard
+                  title={e.name}
+                  image={kal}
+                  onPress={() => handleEdit(e.name, e.description, e.contents)}
+                />
               </Grid>
             );
           })}

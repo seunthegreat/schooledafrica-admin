@@ -13,9 +13,6 @@ export default makeStyles(({ palette, boxShadows, functions, borders }) => {
       backgroundColor: transparent.main,
       boxShadow: "none",
       overflow: "visible",
-      ":hover": {
-        boxShadow: 20, // theme.shadows[20]
-      },
     },
 
     courseCard_imageContainer: {
