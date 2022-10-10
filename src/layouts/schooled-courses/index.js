@@ -109,7 +109,7 @@ function Courses() {
         </Grid>
       </SuiBox> */}
       {courses.map((e) => {
-        return <CourseList name={e.value} key={e.courseId} modules={e.contents} />;
+        return <CourseList name={e.value} key={e.courseId} modules={e.contents} id={e.courseId} />;
       })}
     </DashboardLayout>
   );

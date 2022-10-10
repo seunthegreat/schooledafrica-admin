@@ -36,17 +36,19 @@ import { useHistory } from "react-router-dom";
 //   },
 // ];
 
-const Courses = ({ name, modules }) => {
+const Courses = ({ name, modules, key, id }) => {
   const history = useHistory();
-  const handleEdit = (name, description, contents) => {
+  const handleEdit = (name, description, contents, moduleId) => {
     history.push("/editCourses", {
+      courseId: id,
+      moduleId: moduleId,
       title: name,
       description: description,
       contents: contents,
     });
   };
   return (
-    <SuiBox width="100%">
+    <SuiBox width="100%" key={key}>
       <SuiBox key={name} my={2} display="flex" flexDirection="row" width="100%">
         <SuiBox width="15%">
           <SuiTypography variant="h5" fontWeight="bold" gutterBottom>
@@ -65,7 +67,7 @@ const Courses = ({ name, modules }) => {
                 <CourseCard
                   title={e.name}
                   image={kal}
-                  onPress={() => handleEdit(e.name, e.description, e.contents)}
+                  onPress={() => handleEdit(e.name, e.description, e.contents, e.id)}
                 />
               </Grid>
             );
@@ -79,6 +81,8 @@ const Courses = ({ name, modules }) => {
 Courses.propTypes = {
   name: PropTypes.string,
   modules: PropTypes.array,
+  key: PropTypes.number,
+  id: PropTypes.number,
 };
 
 export default Courses;

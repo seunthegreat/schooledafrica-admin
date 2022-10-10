@@ -20,6 +20,8 @@ const BasicInfo = ({
   description,
   editorValue,
   onChangeEditor,
+  onUpdate,
+  moduleName,
 }) => {
   return (
     <SuiBox display="flex" flexDirection="column" height="100%">
@@ -64,7 +66,7 @@ const BasicInfo = ({
         <SuiBox width="100%" p={1}>
           <SuiBox display="flex" flexDirection="column" height="100%">
             <SuiTypography textColor="text" variant="h6" my={2} gutterBottom>
-              Course Title
+              Module Name
             </SuiTypography>
             <SuiBox width="100%" backgroundColor="#F2FCEC" p={2} mb={1} sx={{ borderRadius: 2 }}>
               <SuiTypography
@@ -80,7 +82,7 @@ const BasicInfo = ({
             </SuiBox>
             <SuiBox pb={1}>
               <SuiInput
-                value={title}
+                value={moduleName}
                 key={"body"}
                 placeholder={"Describe the level..."}
                 onChange={onChangeTitle}
@@ -106,7 +108,7 @@ const BasicInfo = ({
             Shortly describe the course.
           </SuiTypography>
           <SuiBox my={4} width="100%">
-            <SuiButton fullWidth variant="gradient" buttonColor="info">
+            <SuiButton fullWidth variant="gradient" buttonColor="info" onClick={onUpdate}>
               UPDATE
             </SuiButton>
           </SuiBox>
@@ -121,10 +123,12 @@ BasicInfo.propTypes = {
   visible: PropTypes.bool,
   onToggleInfo: PropTypes.func,
   title: PropTypes.string,
+  moduleName: PropTypes.string,
   description: PropTypes.string,
   editorValue: PropTypes.any,
   onChangeEditor: PropTypes.func,
   onChangeTitle: PropTypes.func,
+  onUpdate: PropTypes.func,
 };
 
 export default BasicInfo;
