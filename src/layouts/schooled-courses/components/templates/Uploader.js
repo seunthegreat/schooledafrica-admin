@@ -14,7 +14,7 @@ import { Button } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-const Uploader = ({ visible, onPress, title }) => {
+const Uploader = ({ visible, onPress, title, url, onChangeUrl, onUploadUrl }) => {
   const useStyles = makeStyles({
     titleContainer: {
       backgroundColor: "#F2FCEC",
@@ -132,14 +132,14 @@ const Uploader = ({ visible, onPress, title }) => {
               >
                 <SuiBox width="70%">
                   <SuiInput
-                    //value={title}
+                    value={url}
                     key={"body"}
                     placeholder={"e.g https://myschooledafricabucket/lawsOfIndices.jpg"}
-                    //onChange={(e) => setTitle(e.target.value)}
+                    onChange={onChangeUrl}
                   />
                 </SuiBox>
                 <SuiBox width="25%">
-                  <SuiButton fullWidth variant="gradient" buttonColor="info">
+                  <SuiButton fullWidth variant="gradient" buttonColor="info" onClick={onUploadUrl}>
                     Upload
                   </SuiButton>
                 </SuiBox>
@@ -181,6 +181,9 @@ const Uploader = ({ visible, onPress, title }) => {
 Uploader.propTypes = {
   visible: PropTypes.bool,
   onPress: PropTypes.func,
+  url: PropTypes.string,
+  onChangeUrl: PropTypes.func,
+  onUploadUrl: PropTypes.func,
   title: PropTypes.string,
 };
 

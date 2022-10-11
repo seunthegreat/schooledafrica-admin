@@ -21,6 +21,7 @@ import parse from "html-react-parser"; //--> Html parser
 //--Apis--//
 import { useAuth } from "auth-context/auth.context";
 import ModulesApi from "api/Module";
+import CourseApi from "api/Course";
 
 import Select from "react-select";
 
@@ -39,11 +40,35 @@ function EditCourses() {
 
   //--States--//
 
+  const initialState = {
+    default: null,
+  };
+
+  const clearState = () => {
+    setModuleId(initialState.default);
+    setTitle(initialState.default);
+    setDescription(initialState.default);
+    setModuleName(initialState.default);
+    setValue(initialState.default);
+    setName(initialState.default);
+    setContentName(initialState.default);
+    setTranscript(initialState.default);
+    setTranscriptValue(initialState.default);
+    setIconIsVisible(initialState.default);
+    setImageIsVisible(false);
+    setBasicInfoIsVisible(false);
+  };
+
   //--ids--//
+  const [courseId, setCourseId] = useState("");
   const [moduleId, setModuleId] = useState("");
 
+  //--Images--//
+  const [iconUrl, setIconUrl] = useState("");
+  const [courseImageUrl, setCourseImageUrl] = useState("");
+
   const [title, setTitle] = useState("");
-  const [description, setDescription] = useState(null);
+  const [description, setDescription] = useState("");
   const [moduleName, setModuleName] = useState("");
   const [value, setValue] = useState(RichTextEditor.createEmptyValue());
 
@@ -97,7 +122,6 @@ function EditCourses() {
 
   const showIconContent = () => {
     setIconIsVisible(!iconIsVisible);
-    console.log(iconIsVisible);
   };
 
   const showImageContent = () => {
@@ -135,6 +159,33 @@ function EditCourses() {
   };
 
   //--Server functions--//
+
+  const handleUploadIcon = async () => {
+    let body = {
+      url: iconUrl,
+    };
+
+    try {
+      const response = await CourseApi.updateCourseIcon({ courseId, body, token });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUploadCourseImage = async () => {
+    let body = {
+      url: courseImageUrl,
+    };
+
+    //console.log(body);
+    try {
+      const response = await CourseApi.updateCourseImage({ courseId, body, token });
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   const handleUpdateContent = async () => {
     let body = {
       name: contentName,
@@ -172,16 +223,30 @@ function EditCourses() {
   useEffect(() => {
     console.log(location.state);
 
+    if (location.state === null) {
+      setTitle(null);
+      setDescription(null);
+      setModuleId(null);
+      setContents([]);
+      return;
+    }
+
     let title = location.state.title;
     let description = location.state.description;
     let contents = location.state.contents;
     let moduleId = location.state.moduleId;
+    let courseId = location.state.courseId;
 
     setTitle(title);
     setDescription(description);
     setModuleId(moduleId);
+    setCourseId(courseId);
 
     handleContentList(contents);
+
+    return () => {
+      clearState();
+    };
   }, []);
   const classes = useStyles();
   //const video = "https://www.youtube.com/watch?v=xKQvJgpD8aM";
@@ -203,8 +268,22 @@ function EditCourses() {
       >
         <Card className={classes.container}>
           <SuiBox p={2} height="100%">
-            <Uploader onPress={showIconContent} visible={iconIsVisible} title={"ICON"} />
-            <Uploader onPress={showImageContent} visible={imageIsVisible} title={"IMAGE"} />
+            <Uploader
+              onPress={showIconContent}
+              visible={iconIsVisible}
+              title={"ICON"}
+              url={iconUrl}
+              onChangeUrl={(e) => setIconUrl(e.target.value)}
+              onUploadUrl={handleUploadIcon}
+            />
+            <Uploader
+              onPress={showImageContent}
+              visible={imageIsVisible}
+              title={"IMAGE"}
+              url={courseImageUrl}
+              onChangeUrl={(e) => setCourseImageUrl(e.target.value)}
+              onUploadUrl={handleUploadCourseImage}
+            />
           </SuiBox>
         </Card>
         <SuiBox my={1} />

@@ -17,6 +17,18 @@ class CourseApi {
     });
   };
 
+  static updateCourseIcon = ({ courseId, body, token }) => {
+    return axios.put(`${base}/updateCourseIcon/${courseId}`, body, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
+  static updateCourseImage = ({ courseId, body, token }) => {
+    return axios.put(`${base}/updateCourseImage/${courseId}`, body, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+  };
+
   static DeleteCourse = (data) => {
     return axios.delete(`${base}/deleteCourse/${data.id}`, {
       headers: { Authorization: `Bearer ${data.token}` },
