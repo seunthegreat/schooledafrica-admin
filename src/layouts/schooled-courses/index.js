@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 import SuiBox from "components/SuiBox";
-import SuiTypography from "components/SuiTypography";
+//import SuiTypography from "components/SuiTypography";
 import CourseList from "./components/molecules/Courses";
 //import { Grid } from "@mui/material";
 
@@ -14,6 +14,8 @@ import Select from "react-select";
 //import CourseCard from "./components/atom/CourseCard";
 
 //import kal from "assets/images/kal-visuals-square.jpg";
+import styles from "./styles";
+import Card from "@mui/material/Card";
 
 function Courses() {
   let { user } = useAuth();
@@ -88,17 +90,19 @@ function Courses() {
     //setLevelId(value.contentId);
     fetchCourses(value.levelId);
   };
+
+  const classes = styles();
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <SuiBox display="flex" justifyContent="center" m={2}>
-        <SuiBox width="40%" justifyContent="center">
-          <SuiTypography variant="caption" fontWeight="bold" gutterBottom>
-            Select A Level
-          </SuiTypography>
-          <Select options={levels} onChange={handleSelectLevel} />
+      <SuiBox customClass={classes.profileHeader_background} />
+      <Card className={classes.profileHeader_profile}>
+        <SuiBox display="flex" justifyContent="center" m={2}>
+          <SuiBox width="80%" justifyContent="center">
+            <Select options={levels} onChange={handleSelectLevel} />
+          </SuiBox>
         </SuiBox>
-      </SuiBox>
+      </Card>
       {/* <SuiBox alignContent="center" display="flex" justifyContent="center">
         <Grid mt={2} container spacing={4}>
           <Grid item xs={12} lg={3}>
